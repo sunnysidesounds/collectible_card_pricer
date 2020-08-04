@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ContentFilters</key>
+	<dict/>
+	<key>auto_connect</key>
+	<true/>
+	<key>data</key>
+	<dict>
+		<key>connection</key>
+		<dict>
+			<key>database</key>
+			<string>collectible_card_pricer_db</string>
+			<key>host</key>
+			<string>127.0.0.1</string>
+			<key>kcid</key>
+			<string>-5637170612752507509</string>
+			<key>name</key>
+			<string>localhost</string>
+			<key>rdbms_type</key>
+			<string>mysql</string>
+			<key>sslCACertFileLocation</key>
+			<string></string>
+			<key>sslCACertFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>sslCertificateFileLocation</key>
+			<string></string>
+			<key>sslCertificateFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>sslKeyFileLocation</key>
+			<string></string>
+			<key>sslKeyFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>type</key>
+			<string>SPTCPIPConnection</string>
+			<key>useSSL</key>
+			<integer>0</integer>
+			<key>user</key>
+			<string>root</string>
+		</dict>
+		<key>session</key>
+		<dict>
+			<key>connectionEncoding</key>
+			<string>utf8</string>
+			<key>contentPageNumber</key>
+			<integer>1</integer>
+			<key>contentSelection</key>
+			<data>
+			YnBsaXN0MDDUAQIDBAUGOTpYJHZlcnNpb25YJG9iamVjdHNZJGFy
+			Y2hpdmVyVCR0b3ASAAGGoK0HCBUWFxgZHSQoLDE2VSRudWxs0wkK
+			CwwQFFdOUy5rZXlzWk5TLm9iamVjdHNWJGNsYXNzow0OD4ACgAOA
+			BKMREhOABYAGgAiADFR0eXBlVHJvd3NUa2V5c18QJlNlbGVjdGlv
+			bkRldGFpbFR5cGVQcmltYXJ5S2V5ZWREZXRhaWxz0wkKCxobHKCg
+			gAfSHh8gIVokY2xhc3NuYW1lWCRjbGFzc2VzXxATTlNNdXRhYmxl
+			RGljdGlvbmFyeaMgIiNcTlNEaWN0aW9uYXJ5WE5TT2JqZWN00goL
+			JSehJoAJgAvSCykqK1lOUy5zdHJpbmeAClJpZNIeHy0uXxAPTlNN
+			dXRhYmxlU3RyaW5noy0vMFhOU1N0cmluZ1hOU09iamVjdNIeHzIz
+			Xk5TTXV0YWJsZUFycmF5ozI0NVdOU0FycmF5WE5TT2JqZWN00h4f
+			IjeiIjhYTlNPYmplY3RfEA9OU0tleWVkQXJjaGl2ZXLROzxUZGF0
+			YYABAAgAEQAaACMALQAyADcARQBLAFIAWgBlAGwAcAByAHQAdgB6
+			AHwAfgCAAIIAhwCMAJEAugDBAMIAwwDFAMoA1QDeAPQA+AEFAQ4B
+			EwEVARcBGQEeASgBKgEtATIBRAFIAVEBWgFfAW4BcgF6AYMBiAGL
+			AZQBpgGpAa4AAAAAAAACAQAAAAAAAAA9AAAAAAAAAAAAAAAAAAAB
+			sA==
+			</data>
+			<key>contentSortColIsAsc</key>
+			<true/>
+			<key>contentViewport</key>
+			<string>{{0, 0}, {694, 448}}</string>
+			<key>isToolbarVisible</key>
+			<true/>
+			<key>queries</key>
+			<string>
+
+
+ALTER TABLE cards MODIFY COLUMN price DECIMAL(10, 2);
+
+ALTER TABLE cards
+ADD COLUMN status varchar(250) AFTER meta_data;
+
+#Married boolean DEFAULT false
+
+# List publishers and counts
+SELECT publisher, COUNT(id) FROM cards GROUP BY publisher;
+
+
+# List type and counts
+SELECT type, COUNT(id) FROM cards GROUP BY type;
+
+
+# List name and counts
+SELECT name, COUNT(id) FROM cards WHERE name &gt;= 'Vernon Maxwell' GROUP BY name ORDER BY name;
+SELECT name, COUNT(id) FROM cards GROUP BY name ORDER BY name;
+
+
+
+
+
+SELECT * FROM cards WHERE url = 'https://www.priceguide.cards/en#sport=baseball&amp;publisher=bowman&amp;name=Bobby-Thigpen&amp;cardnumber=306&amp;';
+SELECT * FROM cards WHERE url = 'https://www.priceguide.cards/en#sport=baseball&amp;publisher=bowman&amp;name=Bobby-Thigpen&amp;cardnumber=306&amp;';
+
+SELECT * FROM cards ORDER BY name;
+SELECT COUNT(*) FROM cards WHERE status IS NULL;
+
+SELECT COUNT(*) FROM cards WHERE status = 'PROCESSED';
+
+SELECT COUNT(*) FROM cards WHERE status = 'COULD-NOT-PROCESS';
+
+SELECT * FROM cards WHERE status IS NULL;
+
+SELECT CONCAT("'", url, "', ") FROM cards WHERE status IS NULL ORDER BY name;
+
+#Greg Gagne
+#https://www.priceguide.cards/en#sport=football&amp;publisher=score&amp;name=Steve-Deberg&amp;cardnumber=662&amp;.txt
+
+select * from cards where url = 'https://www.priceguide.cards/en#sport=football&amp;publisher=fleer&amp;name=Mike-Dumas&amp;cardnumber=422&amp;'
+
+
+
+
+</string>
+			<key>table</key>
+			<string>cards</string>
+			<key>view</key>
+			<string>SP_VIEW_CUSTOMQUERY</string>
+			<key>windowVerticalDividerPosition</key>
+			<real>200</real>
+		</dict>
+	</dict>
+	<key>encrypted</key>
+	<false/>
+	<key>format</key>
+	<string>connection</string>
+	<key>queryFavorites</key>
+	<array/>
+	<key>queryHistory</key>
+	<array>
+		<string>SELECT * FROM cards ORDER BY name</string>
+		<string>SELECT COUNT(*) FROM cards WHERE status IS NULL</string>
+		<string>select * from cards where url = 'https://www.priceguide.cards/en#sport=basketball&amp;publisher=fleer&amp;name=Rex-Chapman&amp;cardnumber=18&amp;'</string>
+		<string>select * from cards where url = 'https://www.priceguide.cards/en#sport=football&amp;publisher=score&amp;name=Thurman-Thomas&amp;cardnumber=678&amp;'</string>
+		<string>select * from cards where url = 'https://www.priceguide.cards/en#sport=football&amp;publisher=topps&amp;name=Mark-Bavaro&amp;cardnumber=35&amp;'</string>
+		<string>select * from cards where url = 'https://www.priceguide.cards/en#sport=football&amp;publisher=score&amp;name=Chris-Doleman&amp;cardnumber=56&amp;'</string>
+		<string>select * from cards where url = 'https://www.priceguide.cards/en#sport=baseball&amp;publisher=topps&amp;name=Ryne-Sandberg&amp;cardnumber=210&amp;'</string>
+		<string>select * from cards where url = 'https://www.priceguide.cards/en#sport=basketball&amp;publisher=fleer&amp;name=Joe-Dumars&amp;cardnumber=59&amp;'</string>
+		<string>select * from cards where url = 'https://www.priceguide.cards/en#sport=basketball&amp;publisher=fleer&amp;name=Rumeal-Robinson&amp;cardnumber=3&amp;'</string>
+		<string>SELECT COUNT(*) FROM cards WHERE status = 'PROCESSED'</string>
+		<string>select * from cards where url = 'https://www.priceguide.cards/en#sport=football&amp;publisher=topps&amp;name=Bill-Fralic&amp;cardnumber=571&amp;'</string>
+		<string>SELECT COUNT(*) FROM cards WHERE status = 'COULD-NOT-PROCESS'</string>
+		<string>select * from cards where url = 'https://www.priceguide.cards/en#sport=football&amp;publisher=fleer&amp;name=Mike-Dumas&amp;cardnumber=422&amp;'</string>
+		<string>select * from cards where url = 'https://www.priceguide.cards/en#sport=football&amp;publisher=score&amp;name=Gaston-Green&amp;cardnumber=554&amp;'</string>
+		<string>select * from cards where url = 'https://www.priceguide.cards/en#sport=garbage%20pail%20kids&amp;publisher=topps&amp;name=Hunted-Hunter&amp;cardnumber=NA&amp;'</string>
+		<string>select * from cards where url = 'https://www.priceguide.cards/en#sport=baseball&amp;publisher=fleer&amp;name=Mike-Roesler-/-Derrick-May&amp;cardnumber=645&amp;'</string>
+		<string>select * from cards where url = 'https://www.priceguide.cards/en#sport=baseball&amp;publisher=donruss&amp;name=Kirby-Puckett&amp;cardnumber=BC-8&amp;'</string>
+		<string>select * from cards where url = 'https://www.priceguide.cards/en#sport=football&amp;publisher=pro-set&amp;name=Martin-Bayless&amp;cardnumber=280&amp;'</string>
+		<string>select * from cards where url = 'https://www.priceguide.cards/en#sport=baseball&amp;publisher=donruss&amp;name=Matt-Nokes&amp;cardnumber=170&amp;'</string>
+		<string>select * from cards where url = 'https://www.priceguide.cards/en#sport=football&amp;publisher=topps&amp;name=Dean-Biasucci&amp;cardnumber=315&amp;'</string>
+	</array>
+	<key>rdbms_type</key>
+	<string>mysql</string>
+	<key>rdbms_version</key>
+	<string>5.7.20</string>
+	<key>version</key>
+	<integer>1</integer>
+</dict>
+</plist>
